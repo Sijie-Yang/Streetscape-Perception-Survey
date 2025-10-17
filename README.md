@@ -108,6 +108,20 @@ Start with peer-reviewed survey designs from published research:
 <td><a href="https://arxiv.org/abs/2505.12758">arXiv</a></td>
 <td>📖 <a href="https://github.com/matqr/specs/wiki">Wiki</a></td>
 </tr>
+<tr>
+<td><strong>Building Exterior Perception</strong><br/><code>2025-building</code></td>
+<td>Evaluate human perception of building exteriors using ML techniques (250,000+ building images).</td>
+<td>Liang et al. (2025)</td>
+<td><a href="https://doi.org/10.1016/j.buildenv.2024.111875">Building and Environment</a></td>
+<td>📖 Not provided</td>
+</tr>
+<tr>
+<td><strong>Street Multi-Activity Potential</strong><br/><code>2025-street</code></td>
+<td>Graph-based community detection to evaluate street multi-activity potential (SMAP).</td>
+<td>Li et al. (2025)</td>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S0198971525001036">Cities</a></td>
+<td>📖 Not provided</td>
+</tr>
 </tbody>
 </table>
 
