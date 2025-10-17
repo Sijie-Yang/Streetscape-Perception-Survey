@@ -119,7 +119,14 @@ Start with peer-reviewed survey designs from published research:
 <td><strong>Street Multi-Activity Potential</strong><br/><code>2025-street</code></td>
 <td>Graph-based community detection to evaluate street multi-activity potential (SMAP).</td>
 <td>Li et al. (2025)</td>
-<td><a href="https://www.sciencedirect.com/science/article/pii/S0198971525001036">Cities</a></td>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S0198971525001036">CEUS</a></td>
+<td>📖 Not provided</td>
+</tr>
+<tr>
+<td><strong>Effective Perception Survey</strong><br/><code>2025-effective</code></td>
+<td>Comprehensive framework for image-based survey design in outdoor urban environments.</td>
+<td>Gu et al. (2025)</td>
+<td><a href="https://doi.org/10.1016/j.landurbplan.2025.105368">Landscape and Urban Planning</a></td>
 <td>📖 Not provided</td>
 </tr>
 </tbody>
