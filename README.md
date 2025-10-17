@@ -20,6 +20,10 @@ No coding required – build surveys through an intuitive admin panel with drag-
 🔗 <a href="https://thermal-affordance.ual.sg"><strong>Project Website</strong></a> •
 📊 <a href="https://github.com/Sijie-Yang/Thermal-Affordance"><strong>Dataset</strong></a>
 
+<img src="./public/UAL Logo.jpg" alt="Urban Analytics Lab" height="50">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./public/DoA Logo.jpg" alt="Department of Architecture NUS" height="50">
+
 </div>
 
 ---
@@ -491,15 +495,7 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## 🌟 Acknowledgments
 
-<p align="center">
-  <strong>Developed by Urban Analytics Lab, Department of Architecture, National University of Singapore</strong>
-</p>
-
-<p align="center">
-  <img src="./public/UAL Logo.jpg" alt="Urban Analytics Lab" height="80">
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./public/DoA Logo.jpg" alt="Department of Architecture NUS" height="80">
-</p>
+**Developed by Urban Analytics Lab, Department of Architecture, National University of Singapore**
 
 ### Technology Stack
 
