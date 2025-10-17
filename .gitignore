@@ -27,3 +27,16 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp
+
+# Survey data (saved locally during development)
+/public/responses
+/public/projects/*.json
+!/public/projects/README.md
+
+# Generated deployment packages
+/deployments/*
+!/deployments/.gitkeep
+
+# Backup files
+*.backup
+*.bak

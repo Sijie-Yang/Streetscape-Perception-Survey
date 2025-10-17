@@ -1,149 +1,198 @@
-# Streetscape Perception Survey Platform (SP-Survey)
+<div align="center">
 
-<img src="./public/cover-image.png" alt="Streetscape Perception Survey Cover" width="600">
+# 🏙️ SP-Survey (Streetscape Perception Survey)
 
+[![Stars](https://img.shields.io/github/stars/Sijie-Yang/Streetscape-Perception-Survey?style=social)](https://github.com/Sijie-Yang/Streetscape-Perception-Survey)
 [![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514)
-[![Preprint](https://img.shields.io/badge/📥-Preprint_PDF-9cf)](https://arxiv.org/pdf/2410.11887)
-[![Website](https://img.shields.io/badge/🌐-Project_Website_&_Dataset-blue)](https://thermal-affordance.ual.sg)
-[![Blog](https://img.shields.io/badge/📝-Blog_Post-green)](https://sijie-yang.com/blog/2025/thermal-comfort/)
-[![Blog](https://img.shields.io/badge/🔬-Lab_Post-green)](https://ual.sg/post/2025/01/25/new-paper-thermal-comfort-in-sight/)
-[![Thermal Affordance](https://img.shields.io/badge/🔗-Thermal_Affordance_Study-blue)](https://github.com/Sijie-Yang/Thermal-Affordance)
+[![Website](https://img.shields.io/badge/🌐-Live_Demo-blue)](https://streetscape-perception-survey.vercel.app/)
+[![License](https://img.shields.io/badge/📄-CC_BY_4.0-green)](https://creativecommons.org/licenses/by/4.0/)
+[![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js)](https://nodejs.org/)
 
-A simple and powerful platform for conducting streetscape perception surveys with image-based questions. Deploy in minutes with Supabase and Vercel.
+<img src="./public/cover-image.png" alt="SP-Survey Interface" width="80%">
 
-**🌐 Live Demo: [https://streetscape-perception-survey.vercel.app/](https://streetscape-perception-survey.vercel.app/)**
+<strong>A professional, research-grade platform for conducting visual perception surveys.</strong>
+<br>
+No coding required – build surveys through an intuitive admin panel with drag-and-drop, real-time preview, and cloud integration.
 
-**This platform was initially developed for the [Thermal Affordance research](https://github.com/Sijie-Yang/Thermal-Affordance), which introduces a novel framework for assessing urban thermal comfort using street view imagery and human perception surveys.**
+🌐 <a href="https://streetscape-perception-survey.vercel.app/"><strong>Live Demo</strong></a> •
+📄 <a href="https://www.sciencedirect.com/science/article/pii/S0360132325000514"><strong>Research Paper</strong></a> •
+🔗 <a href="https://thermal-affordance.ual.sg"><strong>Project Website</strong></a> •
+📊 <a href="https://github.com/Sijie-Yang/Thermal-Affordance"><strong>Dataset</strong></a>
 
-## 🚀 Quick Deploy (5 minutes)
+</div>
 
-### Step 1: Set up Supabase Database (2 minutes)
+---
 
-1. **Create Account**: Go to [supabase.com](https://supabase.com) and create a free account
-2. **Create Project**: Click "New Project" and create a project
-3. **Setup Database**: Go to SQL Editor and run this script to create your database:
+## 📸 Platform Overview
 
-```sql
--- Create survey responses table
-CREATE TABLE survey_responses (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  participant_id TEXT,
-  responses JSONB NOT NULL,
-  displayed_images JSONB,
-  survey_metadata JSONB,
-  completed_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+<p align="center">
+  <img src="./public/overview.png" alt="SP-Survey Platform Overview" width="90%">
+</p>
 
--- Create images table for managing street view images
-CREATE TABLE street_images (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  filename TEXT NOT NULL,
-  url TEXT NOT NULL,
-  description TEXT,
-  category TEXT,
-  active BOOLEAN DEFAULT true
-);
+<p align="center">
+  <em>Complete workflow: From image dataset management to survey deployment</em>
+</p>
 
--- Enable Row Level Security
-ALTER TABLE survey_responses ENABLE ROW LEVEL SECURITY;
-ALTER TABLE street_images ENABLE ROW LEVEL SECURITY;
+---
 
--- Create policies for public access (adjust as needed)
-CREATE POLICY "Allow public insert" ON survey_responses FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow public select" ON street_images FOR SELECT USING (active = true);
-```
+## ✨ Key Features
 
-4. **Get API Keys**: Go to Settings → API Keys and Data API panels, and copy your:
-   - Project URL
-   - Anon public key
-   
-   **💾 Save these for later use - you'll need them in Step 3!**
+### 🔧 **Survey Capabilities**
 
-### Step 2: Upload Your Street Images (1 minute)
+#### **Visual Perception Question Types**
+The platform offers 16 specialized question types designed specifically for streetscape perception research:
 
-1. **Create Storage**: In Supabase, go to Storage
-2. **Create Bucket**: Create a new bucket called `street-images`, and make it a public bucket.
-3. **Upload Images**: Upload your street view images to this bucket
-4. **Get Folder Base URL**: Your images folder base URL is: `https://your-project.supabase.co/storage/v1/object/public/street-images/`
-   
-   Individual images will be: `https://your-project.supabase.co/storage/v1/object/public/street-images/filename.jpg`
+**🖼️ Image-Based Questions** (Critical for Visual Assessment):
+- **Image Choice** (imagepicker) - Essential for comparing different streetscape designs or features
+- **Image Ranking** (imageranking) - Crucial for understanding preference hierarchies in urban environments
+- **Image Rating** (imagerating) - Quantifies perceived comfort, safety, or aesthetic appeal (1-5 scale)
+- **Image Yes/No** (imageboolean) - Quick binary assessments for specific streetscape elements
+- **Image Matrix** (imagematrix) - Comprehensive evaluation across multiple criteria simultaneously
+- **Image Display** (image) - Present reference images or context for streetscape scenarios
 
-   **💾 Save this folder base URL - you'll need it in Step 3!**
+**📝 Contextual Data Collection**:
+- **Text Input** (text) - Capture demographic data, location familiarity, or specific observations
+- **Text Multi-line** (comment) - Detailed qualitative feedback about streetscape experiences
+- **Text Single Choice** (radiogroup) - Standardized responses for background variables
+- **Text Multiple Choice** (checkbox) - Multiple factor selection (e.g., preferred amenities)
+- **Text Ranking** (ranking) - Prioritize streetscape improvement factors
+- **Text Rating** (rating) - Quantify non-visual aspects (noise levels, perceived temperature)
+- **Text Yes/No** (boolean) - Quick confirmations or screening questions
+- **Dropdown** (dropdown) - Efficient selection for categorical data
+- **Matrix** (matrix) - Systematic evaluation across multiple streetscape dimensions
+- **Text Instruction** (expression) - Provide context, definitions, or survey guidance
 
-### Step 3: Configure Your Survey (1 minute)
+#### **Research-Grade Features**
+- **📄 Multi-Page Surveys**: Structure complex perception studies with logical flow and progress tracking
+- **📱 Fully Responsive**: Ensure consistent data quality across devices - critical for field studies and diverse participant access
+- **🔄 Drag & Drop**: Rapidly prototype and iterate survey designs based on pilot testing feedback
 
-1. **Clone and Install**:
+*These capabilities enable comprehensive streetscape perception research, from visual comfort assessments to walkability studies, supporting both quantitative analysis and qualitative insights essential for evidence-based urban design.*
+
+### 📋 **Template System - Build Upon Published Research**
+
+**Accelerate your research by directly reusing validated survey designs:**
+
+- **🏛️ Pre-built Academic Templates**: Start with peer-reviewed survey designs
+  - **Yang et al. (2025)** - "Thermal Comfort in Sight" template from *Building and Environment*
+  - Includes 50+ validated questions for thermal affordance assessment
+  - Ready-to-use with `sijiey/Thermal-Affordance-Dataset` on Hugging Face
+  - **🔄 More Templates Coming Soon**: Additional validated survey designs from recent publications in preparation
+  
+- **💾 Save Your Own Templates**: Transform any project into a reusable template
+  - Preserves survey structure, question types, and validation rules
+  - Metadata support: Author, Year, Category, Tags, Website, Dataset references
+  - Clean exports (automatically removes sensitive credentials)
+  
+- **🔄 Import & Share**: Collaborate across research teams
+  - Export projects as JSON templates
+  - Import templates from colleagues or publications
+  - Rapid deployment of standardized protocols across multiple studies
+  
+- **🚀 Rapid Prototyping**: Build new studies 10x faster
+  - Clone existing templates and customize for new contexts
+  - Maintain methodological consistency across longitudinal studies
+  - Iterate on proven designs without starting from scratch
+
+*Perfect for replication studies, cross-cultural comparisons, or adapting validated instruments to new research questions.*
+
+### 💾 **Data & Deployment**
+- **🤗 Hugging Face**: Host your image datasets
+- **☁️ Supabase**: Store images and survey responses
+- **🚀 Vercel**: Deploy your survey website with one click
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Hugging Face Account** (https://huggingface.co) for your image dataset.
+- **Supabase Account** (https://supabase.com) for cloud storage of survey images and survey responses.
+- **Vercel Account** (https://vercel.com) for deploying your survey website.
+
+### Installation
 ```bash
-git clone https://github.com/yourusername/streetscape-perception-survey.git
-cd streetscape-perception-survey
-./deploy.sh
+# Clone the repository
+git clone https://github.com/Sijie-Yang/Streetscape-Perception-Survey.git
+cd Streetscape-Perception-Survey
+
+# Install dependencies
+npm install
+
+# Start both frontend and backend simultaneously
+npm run dev
 ```
 
-2. **Add Credentials**: The script will create `.env.local` - edit it with your Supabase credentials:
-```env
-REACT_APP_SUPABASE_URL=https://your-project.supabase.co
-REACT_APP_SUPABASE_ANON_KEY=your-anon-key
-```
+### Access the Application
 
-3. **⚠️ IMPORTANT: Configure Your Images**: Edit `src/config/streetImages.js` and **MUST REPLACE** with your own data:
+Once started, open your browser:
 
-```javascript
-// 🔧 STEP 1: Replace with YOUR Supabase project URL
-const SUPABASE_STORAGE_URL = "https://YOUR-PROJECT-ID.supabase.co/storage/v1/object/public/street-images";
+- **🎨 Admin Panel**: http://localhost:3000/admin
+  - Create and manage surveys
+  - Configure image datasets (Hugging Face) and survey backends (Supabase)
+  - Preview surveys in real-time
+  
+- **📋 Live Survey View**: http://localhost:3000/survey
 
-// 🔧 STEP 2: Replace with YOUR actual image filenames
-const imageFilenames = [
-  "your_street_image_1.jpg",
-  "your_street_image_2.jpg", 
-  "your_street_image_3.jpg",
-  "your_street_image_4.jpg",
-  // Add ALL your uploaded image filenames here...
-];
-```
+### Create Your First Survey (3 minutes)
 
-**🚨 CRITICAL**: You MUST replace both:
-- `YOUR-PROJECT-ID` with your actual Supabase project ID
-- The image filenames with your actual uploaded image names
+1. **Load a Template** or **Create New Project**
+   - Click "Load Template" → Select "Thermal Comfort in Sight" (Yang et al. 2025)
+   - Or click "New Project" for a blank survey
 
-**🚀 Quick way to get all filenames**: After uploading images to Supabase Storage, you can:
-- In Supabase Storage, select all your images and copy the filenames
-- Or use this command in your terminal to list all files: `ls your_images_folder/`
-- Or in Supabase Storage interface, you can see all filenames in the file list
+2. **Step 1 - Image Dataset**
+   - Upload your images to Hugging Face as a Dataset, then fill in the dataset name in Admin Panel (e.g., `sijiey/Thermal-Affordance-Dataset`)
+   - Configure your Supabase account credentials in the connection settings
+   - After both steps are confirmed successful, click "Preload Images" to automatically transfer images from Hugging Face to Supabase storage and save stable URLs for your survey project
+   - Click "Next: Survey Builder →"
 
-4. **Customize Survey** (optional):
-   - Edit `src/config/surveyConfig.js` to change title, description, and lab information
-   - Edit `src/config/questions.js` to modify questions
+3. **Step 2 - Survey Builder**
+   - Fill in survey basic information
+   - Set up survey display settings
+   - Add pages and questions with drag-and-drop
+   - Configure question types (image choice, image rating, text, etc.)
+   - Click "Next: Server Setup →"
 
-### Step 4: Deploy to Vercel (1 minute)
+4. **Step 3 - Server Setup**
+   - Test Supabase database connection
+   - Create response table in supabase
+   - Click "Complete Setup" → auto-navigates to Step 4
 
-1. **Push to GitHub**: 
-```bash
-git add .
-git commit -m "Initial setup"
-git push origin main
-```
+5. **Step 4 - Website Setup**
+   - Generate deployment files and automatically test locally
+   - Auto-upload to GitHub repository
+   - Manually deploy to Vercel (requires manual action)
 
-2. **Deploy**: Go to [vercel.com](https://vercel.com) and sign up
-3. **Import Project**: Click "New Project" and import your GitHub repository
-4. **Add Environment Variables**: In Vercel project settings, add these environment variables:
-   - Name: `REACT_APP_SUPABASE_URL`, Value: `https://your-project.supabase.co`
-   - Name: `REACT_APP_SUPABASE_ANON_KEY`, Value: `your-anon-key-here`
-5. **Deploy**: Click Deploy
+6. **Save & Preview**
+   - Click 💾 "Save" in the top bar (turns yellow when unsaved)
+   - Click 👁️ "Preview" to test your survey
 
-**🎉 Your survey will be live at `https://your-project.vercel.app`**
+---
 
-## 📊 View Survey Results
+## 💡 Use Cases
 
-1. Go to your Supabase dashboard
-2. Navigate to Table Editor → survey_responses
-3. View all responses in real-time
-4. Export data as CSV for analysis
+- **Urban Planning**: Streetscape perception surveys
+- **Market Research**: Product preference studies
+- **Psychology**: Visual perception experiments
+- **Education**: Student assessment with images
+- **Healthcare**: Patient feedback with visual aids
+- **Architecture**: Design preference surveys
 
-## 📚 Citation
+---
 
-This survey platform was initially developed for the following research:
+## 📊 Survey Data Collection
+
+### **View Responses:**
+1. Supabase Dashboard → Table Editor
+2. Export as CSV or JSON
+3. Real-time monitoring
+
+---
+
+## 🎓 Academic Citation
+
+This platform was developed for the Thermal Affordance research:
 
 ```bibtex
 @article{yang2025thermal,
@@ -155,343 +204,296 @@ This survey platform was initially developed for the following research:
   publisher={Elsevier}
 }
 ```
-**If you use this platform in your research, please consider citing the above paper.**
 
-## 🎨 Customization Guide
+**📄 [Read the Paper](https://www.sciencedirect.com/science/article/pii/S0360132325000514)** | **🔗 [Project Website](https://thermal-affordance.ual.sg)** | **📊 [Dataset](https://github.com/Sijie-Yang/Thermal-Affordance)**
 
-### Survey Configuration
-
-Edit `src/config/surveyConfig.js`:
-
-```javascript
-export const surveyConfig = {
-  title: "Your Survey Title",
-  description: "Your survey description...",
-  logo: "https://your-supabase-url/storage/v1/object/public/street-images/lab-logo.jpg",
-  labDescription: "Your lab description...",
-  // ... other settings
-};
-```
-
-### 📝 How to Modify Survey Questions
-
-All survey questions are configured in `src/config/questions.js`. The system uses pre-generated random images for consistency.
-
-#### 🔧 **Understanding the Image System**
-
-Images are pre-generated when the survey loads using this logic:
-```javascript
-const displayedImages = {
-  safety_perception: getRandomImages("safety_perception", 2), // 2 images, choose 1
-  attractiveness_perception: getRandomImages("attractiveness_perception", 2), // 2 images, choose 1
-  liveliness_perception: getRandomImages("liveliness_perception", 4), // 4 images, choose 1
-  // ... more questions
-};
-```
-
-#### 1. **Image Selection Questions** (Choose 1 from multiple images)
-
-**Current example**: Safety perception question
-```javascript
-{
-  type: "imagepicker",
-  name: "safety_perception",
-  title: "Safety Perception", 
-  description: "Which street environment do you perceive to be the SAFEST?",
-  choices: displayedImages.safety_perception, // Uses pre-generated images
-  multiSelect: false
-}
-```
-
-**To modify**:
-1. **Change the question text**: Edit `title` and `description`
-2. **Change number of images**: Modify the count in `generateQuestionImages()`:
-   ```javascript
-   safety_perception: getRandomImages("safety_perception", 4), // Change 2 to 4 for more options
-   ```
-3. **Change perception type**: Replace "safety_perception" with your own (e.g., "beauty_perception")
-4. **Add new image question**: Add both in `generateQuestionImages()` and in the survey page
-
-**🚨 IMPORTANT**: Current survey has 6 perception questions:
-- `safety_perception` (2 choose 1) - Which street is SAFEST?
-- `attractiveness_perception` (2 choose 1) - Which street is most ATTRACTIVE?  
-- `walkability_perception` (2 choose 1) - Which street is most WALKABLE?
-- `liveliness_perception` (4 choose 1) - Which street is most LIVELY?
-- `relaxation_perception` (4 choose 1) - Which street is most RELAXING?
-- `cleanliness_perception` (4 choose 1) - Which street is most CLEAN?
-
-#### 2. **Likert Scale Rating** (Rate 1-5 scale with image)
-
-**Current example**: Comfort rating
-```javascript
-{
-  type: "image",
-  name: "comfort_image", 
-  imageLink: displayedImages.comfort_rating[0]?.imageLink, // Shows 1 random image
-},
-{
-  type: "radiogroup",
-  name: "comfort_level",
-  title: "How comfortable would you feel walking in this street?",
-  choices: [
-    { value: 1, text: "Very Uncomfortable" },
-    { value: 2, text: "Uncomfortable" },
-    { value: 3, text: "Neutral" },
-    { value: 4, text: "Comfortable" },
-    { value: 5, text: "Very Comfortable" }
-  ]
-}
-```
-
-**To modify**:
-1. **Change the question**: Edit `title` 
-2. **Change scale labels**: Modify the `choices` array text
-3. **Change scale range**: Add/remove choice options (e.g., 1-7 scale)
-4. **Ensure image is generated**: Make sure `comfort_rating` is in `generateQuestionImages()`
-
-#### 3. **Multiple Choice Questions** (Select one option)
-
-**Current example**: Age demographics
-```javascript
-{
-  name: "age",
-  title: "What is your age group?",
-  type: "radiogroup",
-  choices: [
-    { value: "18-24", text: "18-24 years old" },
-    { value: "25-34", text: "25-34 years old" },
-    { value: "35-44", text: "35-44 years old" },
-    // ... more options
-  ]
-}
-```
-
-**To modify**:
-- Change `title` to your question
-- Replace `choices` array with your options
-- Each choice needs `value` (data saved) and `text` (displayed)
-
-#### 4. **Checkbox Questions** (Select multiple options with image)
-
-**Current example**: Street elements identification
-```javascript
-{
-  type: "image", 
-  name: "elements_image",
-  imageLink: displayedImages.street_elements[0]?.imageLink, // Shows 1 random image
-},
-{
-  type: "checkbox",
-  name: "visible_elements",
-  title: "Which elements do you notice in this street? (Select all that apply)",
-  choices: [
-    "Trees and vegetation",
-    "Street furniture (benches, lights)",
-    "Bicycle lanes", 
-    "Pedestrian crossings",
-    "Public art or decorations",
-    // ... more options
-  ]
-}
-```
-
-**To modify**:
-1. **Change the question**: Edit `title`
-2. **Change options**: Replace `choices` array with your options
-3. **Ensure image is generated**: Make sure `street_elements` is in `generateQuestionImages()`
-
-#### 5. **Ranking Questions** (Drag & drop to order with image)
-
-**Current example**: Feature importance ranking
-```javascript
-{
-  type: "image", 
-  name: "ranking_image",
-  imageLink: displayedImages.feature_ranking[0]?.imageLink, // Shows 1 random image
-},
-{
-  type: "ranking",
-  name: "street_features",
-  title: "Based on the image above, drag to rank these features from most important (top) to least important (bottom):",
-  choices: [
-    { value: "safety", text: "Safety and security" },
-    { value: "greenery", text: "Trees and greenery" },
-    { value: "walkability", text: "Wide sidewalks and walkability" },
-    { value: "aesthetics", text: "Visual appeal and aesthetics" },
-    { value: "amenities", text: "Street furniture and amenities" }
-  ]
-}
-```
-
-**To modify**:
-1. **Change the question**: Edit `title`
-2. **Change ranking items**: Replace `choices` array (use `value` and `text` format)
-3. **Ensure image is generated**: Make sure `feature_ranking` is in `generateQuestionImages()`
-
-#### 6. **Text Input Questions** (Open-ended responses with image)
-
-**Current example**: Additional feedback
-```javascript
-{
-  type: "image", 
-  name: "feedback_image",
-  imageLink: displayedImages.open_feedback[0]?.imageLink, // Shows 1 random image
-},
-{
-  type: "comment",
-  name: "general_feedback", 
-  title: "Looking at this street, what makes a street environment appealing to you? (Optional)",
-  description: "Please share your thoughts about streetscape design, walkability, or any other aspects that matter to you.",
-  maxLength: 500
-}
-```
-
-**To modify**:
-1. **Change the question**: Edit `title` and `description`
-2. **Adjust text box**: Change `maxLength` or use `type: "text"` for single-line
-3. **Ensure image is generated**: Make sure `open_feedback` is in `generateQuestionImages()`
-
-#### 7. **Adding New Image Questions**
-
-To add a completely new image-based question:
-
-**Step 1**: Add to `generateQuestionImages()`:
-```javascript
-const questionImages = {
-  // ... existing questions
-  your_new_question: getRandomImages("your_new_question", 4), // 4 images to choose from
-};
-```
-
-**Step 2**: Add to the appropriate survey page:
-```javascript
-{
-  type: "imagepicker",
-  name: "your_new_question",
-  title: "Your Question Title",
-  description: "Your question description",
-  choices: displayedImages.your_new_question,
-  multiSelect: false // or true for multiple selection
-}
-```
-
-#### 8. **Question Logic & Conditions**
-
-Make questions appear based on previous answers:
-
-```javascript
-{
-  name: "follow_up_question",
-  title: "Follow-up question",
-  type: "text",
-  visibleIf: "{previous_question} = 'specific_answer'"
-}
-```
-
-#### 9. **Changing Question Order**
-
-Questions appear in the order they're listed in each page's `elements` array. Simply reorder them in the file.
-
-#### 10. **Making Questions Optional**
-
-Remove `required: true` or set `required: false` to make any question optional.
-
-### Current Survey Structure
-
-The default survey includes 6 parts:
-
-1. **Part 1: Demographics** (Optional) - Age, location, income, education, outdoor activities
-2. **Part 2: Street Perception** (6 questions) - Safety, attractiveness, walkability, liveliness, relaxation, cleanliness  
-3. **Part 3: Comfort Rating** - 1-5 scale rating with image
-4. **Part 4: Street Elements** - Checkbox identification with image
-5. **Part 5: Feature Ranking** - Drag & drop ranking with image
-6. **Part 6: Open Feedback** - Text input with image
-
-## 🔧 Advanced Configuration
-
-### Custom Styling
-
-Edit `src/styles/globals.css` to match your brand:
-- Colors
-- Fonts
-- Layout spacing
-- Component styling
-
-
-
-### Data Export
-
-Access your data via Supabase API or dashboard:
-- Real-time responses
-- CSV export
-- JSON format
-- Direct database queries
-
-## 📱 Mobile Responsive
-
-The survey automatically adapts to:
-- Desktop computers
-- Tablets
-- Mobile phones
-- Different screen orientations
-
-## 🔒 Privacy & Security
-
-- No personal data stored by default
-- Supabase handles data security
-- GDPR compliant
-- Optional participant anonymization
+---
 
 ## 🆘 Troubleshooting
 
-### Images not loading?
-- Check Supabase storage bucket is public
-- Verify image URLs are correct
-- Ensure images are in supported formats (JPG, PNG, WebP)
+### Common Issues & Solutions
 
-### Survey not saving responses?
-- Check Supabase connection
-- Verify environment variables in `.env.local`
-- Check browser console for errors
+#### 🖼️ **Images Not Loading**
 
-### Deployment issues?
-- Ensure all environment variables are set in Vercel
-- Check build logs for errors
-- Verify GitHub repository is connected
+**Problem**: Images don't display in survey or preview
 
-### Local development
-```bash
-npm install
-npm start
+**Solutions**:
+```javascript
+1. Check Supabase bucket is public
+   - Go to Supabase Storage → street-images → Settings
+   - Enable "Public bucket"
+
+2. Verify image URLs
+   - Open URL in browser: https://xxx.supabase.co/storage/v1/object/public/street-images/image.jpg
+   - Should show image, not 404/403 error
+
+3. Check Hugging Face URLs expiration
+   - HF URLs expire after ~1 hour
+   - Solution: Preload to Supabase for stable URLs
+
+4. Browser console errors
+   - Press F12 → Console tab
+   - Look for CORS or network errors
 ```
 
-## 📈 Analytics
+#### 💾 **Cannot Save Projects**
 
-Track survey performance:
-- Response rates
-- Completion times
-- Drop-off points
-- Device/browser statistics
+**Problem**: "Save" button doesn't work, or projects disappear after refresh
+
+**Solutions**:
+```bash
+1. Ensure backend server is running
+   ✅ Should see: "🚀 File management server running on http://localhost:3001"
+   ❌ If not: Run `node server.js` in terminal
+
+2. Check server connection
+   - Open http://localhost:3001/api/projects in browser
+   - Should return JSON list of files
+
+3. Verify folder permissions
+   ls -la public/projects/
+   # Should be writable by current user
+
+4. Check browser console
+   - Look for "Failed to fetch" or 404 errors
+   - May indicate port conflict (change 3001 to another port)
+```
+
+#### 🎨 **Theme Not Applying**
+
+**Problem**: Theme selection doesn't change colors
+
+**Solutions**:
+```javascript
+1. Hard refresh browser
+   - Windows/Linux: Ctrl + Shift + R
+   - Mac: Cmd + Shift + R
+
+2. Clear localStorage
+   - Console: localStorage.removeItem('sp-survey-theme')
+   - Or use "Clean Cache" button in admin panel
+
+3. Check browser console for theme errors
+```
+
+#### ☁️ **Supabase Connection Failed**
+
+**Problem**: "Connection failed" when testing Supabase
+
+**Solutions**:
+```javascript
+1. Verify credentials
+   - URL format: https://xxxxx.supabase.co (not ...supabase.com)
+   - Key: Should be "anon/public" key, not "service_role" key
+
+2. Check Supabase project status
+   - Go to https://supabase.com/dashboard
+   - Ensure project is "Active" (not paused)
+
+3. Verify Row Level Security (RLS)
+   - Tables need proper policies for public access
+   - Storage buckets must be public
+
+4. Test with cURL
+   curl -H "apikey: YOUR_ANON_KEY" \
+        https://xxxxx.supabase.co/rest/v1/
+```
+
+#### 🔄 **Project Not Found in Survey View**
+
+**Problem**: `/survey?project=xxx` shows "Project not found"
+
+**Solutions**:
+```javascript
+1. Check project ID is correct
+   - Admin panel → Project list → Copy exact ID
+   - Format: proj_1234567890_abcdef
+
+2. Ensure project file exists
+   - Check public/projects/proj_xxx.json exists
+   - File should contain valid JSON
+
+3. Backend server must be running
+   - Survey loads config via API endpoint
+```
+
+#### 🚀 **Deployment Build Fails**
+
+**Problem**: `npm run build` fails with errors
+
+**Solutions**:
+```bash
+1. Clear npm cache and node_modules
+   rm -rf node_modules package-lock.json
+   npm install
+
+2. Check Node.js version
+   node -v  # Should be 16+
+   nvm use 18  # Switch if needed
+
+3. Fix linter errors first
+   npm run build 2>&1 | grep "Error"
+   # Fix any ESLint or compilation errors
+
+4. Increase memory limit (if out of memory)
+   NODE_OPTIONS=--max_old_space_size=4096 npm run build
+```
+
+#### 📱 **Survey Not Mobile Responsive**
+
+**Problem**: Survey looks broken on mobile devices
+
+**Solutions**:
+```javascript
+1. Check viewport meta tag (should be in public/index.html)
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+2. Test in browser dev tools
+   - F12 → Toggle device toolbar (Ctrl+Shift+M)
+   - Test on various screen sizes
+
+3. Adjust SurveyJS theme
+   - Check theme.js for responsive settings
+```
+
+### Getting Help
+
+- **GitHub Issues**: [Report a bug](https://github.com/Sijie-Yang/Streetscape-Perception-Survey/issues)
+- **Discussions**: [Ask questions](https://github.com/Sijie-Yang/Streetscape-Perception-Survey/discussions)
+- **Documentation**: Check inline code comments
+- **Logs**: Always check browser console (F12) and terminal output
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+We welcome contributions from the community! Whether it's bug fixes, new features, documentation improvements, or translations, your help is appreciated.
+
+### How to Contribute
+
+#### 1. **Report Bugs**
+- Check [existing issues](https://github.com/Sijie-Yang/Streetscape-Perception-Survey/issues) first
+- Create a new issue with:
+  - Clear title and description
+  - Steps to reproduce
+  - Expected vs actual behavior
+  - Screenshots if applicable
+  - Browser/OS version
+
+#### 2. **Suggest Features**
+- Open a [discussion](https://github.com/Sijie-Yang/Streetscape-Perception-Survey/discussions) or issue
+- Explain the use case and benefits
+- Provide examples or mockups if possible
+
+#### 3. **Submit Code**
+
+```bash
+# Fork the repository on GitHub
+git clone https://github.com/YOUR_USERNAME/Streetscape-Perception-Survey.git
+cd Streetscape-Perception-Survey
+
+# Create a feature branch
+git checkout -b feature/amazing-feature
+
+# Make your changes and test
+npm install
+npm run dev
+
+# Commit with clear messages
+git add .
+git commit -m "Add: Amazing new feature
+
+- Detailed description of what changed
+- Why this change was needed
+- Any breaking changes"
+
+# Push to your fork
+git push origin feature/amazing-feature
+
+# Open a Pull Request on GitHub
+```
+
+#### 4. **Code Style Guidelines**
+
+- **JavaScript**: Follow existing code style (ESLint configuration)
+- **Components**: Use functional components with hooks
+- **Comments**: Add comments for complex logic
+- **Naming**: Use descriptive variable/function names
+- **Files**: One component per file, named after the component
+
+#### 5. **Pull Request Checklist**
+
+- [ ] Code follows existing style
+- [ ] Comments added for complex logic
+- [ ] No console.log() or debugger statements
+- [ ] Tested in Chrome, Firefox, and Safari
+- [ ] Tested on mobile viewport
+- [ ] No breaking changes (or clearly documented)
+- [ ] Updated README if needed
+
+### Development Tips
+
+```bash
+# Run linter
+npm run lint
+
+# Format code (if you have Prettier)
+npm run format
+
+# Check for unused dependencies
+npx depcheck
+
+# Analyze bundle size
+npm run build
+npx source-map-explorer 'build/static/js/*.js'
+```
+
+### Areas We'd Love Help With
+
+- 🌐 **Internationalization**: Add translations for multiple languages
+- 📱 **Mobile UX**: Improve mobile survey experience
+- 🎨 **Themes**: Design new color themes
+- 📊 **Question Types**: Create new custom question widgets
+- 📚 **Documentation**: Tutorial videos, blog posts
+- 🧪 **Testing**: Unit tests, integration tests
+- ♿ **Accessibility**: WCAG compliance improvements
+- 🚀 **Performance**: Loading speed optimizations
+
+---
 
 ## 📄 License
 
-MIT License - feel free to use for research and commercial projects.
+**CC BY 4.0 (Creative Commons Attribution 4.0 International)**
 
-## 📞 Support
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
-- GitHub Issues: Report bugs and request features
-- All configuration is in the `src/config/` folder
-- Check console logs for debugging information
+**You are free to:**
+- ✅ Share — copy and redistribute the material
+- ✅ Adapt — remix, transform, and build upon the material
+- ✅ Commercial use allowed
+
+**Under the following terms:**
+- 📝 **Attribution** — You must give appropriate credit and cite the original paper
+
+**How to cite:**
+```bibtex
+@article{yang2025thermal,
+  title={Thermal comfort in sight: Thermal affordance and its visual assessment for sustainable streetscape design},
+  author={Yang, Sijie and Chong, Adrian and Liu, Pengyuan and Biljecki, Filip},
+  journal={Building and Environment},
+  pages={112569},
+  year={2025},
+  publisher={Elsevier}
+}
+```
 
 ---
 
-**That's it! Your streetscape perception survey is ready to collect responses! 🎉**
+## 🌟 Acknowledgments
 
----
+- **SurveyJS**: Survey rendering engine
+- **Material-UI**: UI components
+- **Supabase**: Cloud database & storage
+- **Hugging Face**: Dataset hosting
+- **Vercel**: Deployment platform
+
