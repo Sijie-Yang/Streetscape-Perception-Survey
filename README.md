@@ -128,7 +128,7 @@ npm install
 # Start both frontend and backend simultaneously
 npm run dev
 
-# Or use safe mode with auto-restart (recommended for development)
+# Or use safe mode with auto-restart (highly recommended for development)
 npm run dev:safe
 ```
 
