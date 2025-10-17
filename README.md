@@ -491,6 +491,18 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## 🌟 Acknowledgments
 
+<p align="center">
+  <strong>Developed by Urban Analytics Lab, Department of Architecture, National University of Singapore</strong>
+</p>
+
+<p align="center">
+  <img src="./public/UAL Logo.jpg" alt="Urban Analytics Lab" height="80">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./public/DoA Logo.jpg" alt="Department of Architecture NUS" height="80">
+</p>
+
+### Technology Stack
+
 - **SurveyJS**: Survey rendering engine
 - **Material-UI**: UI components
 - **Supabase**: Cloud database & storage
