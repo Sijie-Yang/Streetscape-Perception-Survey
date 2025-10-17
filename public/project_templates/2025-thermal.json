@@ -6,11 +6,10 @@
   "year": "2025",
   "category": "Academic Research",
   "tags": [
-    "custom",
-    "user-created"
+    "official"
   ],
   "website": "https://www.sciencedirect.com/science/article/abs/pii/S0360132325000514",
-  "huggingfaceDataset": "sijiey/Thermal-Affordance-Dataset",
+  "huggingfaceDataset": "Dataset can be applied directly: sijiey/Thermal-Affordance-Dataset",
   "createdAt": "2025-10-17T01:04:49.114Z",
   "config": {
     "title": "Urban Streetscape Perception Survey",
