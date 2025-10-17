@@ -83,58 +83,17 @@ The platform offers 16 specialized question types designed specifically for stre
 
 Start with peer-reviewed survey designs from published research:
 
-<div style="font-size: 0.75em;">
+<small>
 
-<table>
-<thead>
-<tr>
-<th>Template</th>
-<th>Description</th>
-<th>Authors</th>
-<th>Publication</th>
-<th>Dataset</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Thermal Comfort in Sight</strong><br/><code>2025-thermal</code></td>
-<td>Thermal comfort assessment using SVI. 50+ validated questions.</td>
-<td>Yang et al. (2025)</td>
-<td><a href="https://www.sciencedirect.com/science/article/abs/pii/S0360132325000514">Building and Environment</a></td>
-<td>✅ <code>sijiey/Thermal-Affordance-Dataset</code></td>
-</tr>
-<tr>
-<td><strong>SPECS</strong><br/><code>2025-specs</code></td>
-<td>Street perception evaluation considering demographics and personality (1,000+ participants, 5 countries).</td>
-<td>Quintana et al. (2025)</td>
-<td><a href="https://arxiv.org/abs/2505.12758">arXiv</a></td>
-<td>📖 <a href="https://github.com/matqr/specs/wiki">Wiki</a></td>
-</tr>
-<tr>
-<td><strong>Building Exterior Perception</strong><br/><code>2025-building</code></td>
-<td>Evaluate human perception of building exteriors using ML techniques (250,000+ building images).</td>
-<td>Liang et al. (2025)</td>
-<td><a href="https://doi.org/10.1016/j.buildenv.2024.111875">Building and Environment</a></td>
-<td>📖 Not provided</td>
-</tr>
-<tr>
-<td><strong>Street Multi-Activity Potential</strong><br/><code>2025-street</code></td>
-<td>Graph-based community detection to evaluate street multi-activity potential (SMAP).</td>
-<td>Li et al. (2025)</td>
-<td><a href="https://www.sciencedirect.com/science/article/pii/S0198971525001036">CEUS</a></td>
-<td>📖 Not provided</td>
-</tr>
-<tr>
-<td><strong>Effective Perception Survey</strong><br/><code>2025-effective</code></td>
-<td>Comprehensive framework for image-based survey design in outdoor urban environments.</td>
-<td>Gu et al. (2025)</td>
-<td><a href="https://doi.org/10.1016/j.landurbplan.2025.105368">Landscape and Urban Planning</a></td>
-<td>📖 Not provided</td>
-</tr>
-</tbody>
-</table>
+| Template | Description | Authors | Publication | Dataset |
+|----------|-------------|---------|-------------|---------|
+| **Thermal Comfort in Sight**<br/>`2025-thermal` | Thermal comfort assessment using SVI. 50+ validated questions. | Yang et al. (2025) | [Building and Environment](https://www.sciencedirect.com/science/article/abs/pii/S0360132325000514) | ✅ `sijiey/Thermal-Affordance-Dataset` |
+| **SPECS**<br/>`2025-specs` | Street perception evaluation considering demographics and personality (1,000+ participants, 5 countries). | Quintana et al. (2025) | [arXiv](https://arxiv.org/abs/2505.12758) | 📖 [Wiki](https://github.com/matqr/specs/wiki) |
+| **Building Exterior Perception**<br/>`2025-building` | Evaluate human perception of building exteriors using ML techniques (250,000+ building images). | Liang et al. (2025) | [Building and Environment](https://doi.org/10.1016/j.buildenv.2024.111875) | 📖 Not provided |
+| **Street Multi-Activity Potential**<br/>`2025-street` | Graph-based community detection to evaluate street multi-activity potential (SMAP). | Li et al. (2025) | [CEUS](https://www.sciencedirect.com/science/article/pii/S0198971525001036) | 📖 Not provided |
+| **Effective Perception Survey**<br/>`2025-effective` | Comprehensive framework for image-based survey design in outdoor urban environments. | Gu et al. (2025) | [Landscape and Urban Planning](https://doi.org/10.1016/j.landurbplan.2025.105368) | 📖 Not provided |
 
-</div>
+</small>
 
 **How to Use Templates:**
 1. Open Admin Panel → Project Sidebar
