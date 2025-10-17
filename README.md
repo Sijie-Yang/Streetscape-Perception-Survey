@@ -79,26 +79,70 @@ The platform offers 16 specialized question types designed specifically for stre
 
 **Accelerate your research by directly reusing validated survey designs:**
 
-- **🏛️ Pre-built Academic Templates**: Start with peer-reviewed survey designs
-  - **Yang et al. (2025)** - "Thermal Comfort in Sight" template from *Building and Environment*
-  - Includes 50+ validated questions for thermal affordance assessment
-  - Ready-to-use with `sijiey/Thermal-Affordance-Dataset` on Hugging Face
-  - **🔄 More Templates Coming Soon**: Additional validated survey designs from recent publications in preparation
-  
-- **💾 Save Your Own Templates**: Transform any project into a reusable template
-  - Preserves survey structure, question types, and validation rules
-  - Metadata support: Author, Year, Category, Tags, Website, Dataset references
-  - Clean exports (automatically removes sensitive credentials)
-  
-- **🔄 Import & Share**: Collaborate across research teams
-  - Export projects as JSON templates
-  - Import templates from colleagues or publications
-  - Rapid deployment of standardized protocols across multiple studies
-  
-- **🚀 Rapid Prototyping**: Build new studies 10x faster
-  - Clone existing templates and customize for new contexts
-  - Maintain methodological consistency across longitudinal studies
-  - Iterate on proven designs without starting from scratch
+#### **🏛️ Available Academic Templates**
+
+Start with peer-reviewed survey designs from published research:
+
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Description</th>
+<th>Authors</th>
+<th>Publication</th>
+<th>Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thermal Comfort in Sight</strong><br/><code>2025-thermal</code></td>
+<td>Thermal comfort assessment using SVI. 50+ validated questions.</td>
+<td>Yang et al. (2025)</td>
+<td><a href="https://www.sciencedirect.com/science/article/abs/pii/S0360132325000514">Building and Environment</a></td>
+<td>✅ <code>sijiey/Thermal-Affordance-Dataset</code></td>
+</tr>
+<tr>
+<td><strong>SPECS</strong><br/><code>2025-specs</code></td>
+<td>Street perception evaluation considering demographics and personality (1,000+ participants, 5 countries).</td>
+<td>Quintana et al. (2025)</td>
+<td><a href="https://arxiv.org/abs/2505.12758">arXiv</a></td>
+<td>📖 <a href="https://github.com/matqr/specs/wiki">Wiki</a></td>
+</tr>
+</tbody>
+</table>
+
+**How to Use Templates:**
+1. Open Admin Panel → Project Sidebar
+2. Click **"Load Template"** button
+3. Select a template from the list
+4. Customize for your research needs
+5. Deploy to your survey platform
+
+#### **💾 Create Your Own Templates**
+
+Transform any project into a reusable template:
+
+- **Preserves survey structure**: Question types, validation rules, logic flows
+- **Metadata support**: Author, Year, Category, Tags, Website, Dataset references
+- **Clean exports**: Automatically removes sensitive credentials (API keys, tokens)
+- **Version control**: Track template revisions and updates
+
+#### **🔄 Import & Share**
+
+Collaborate across research teams:
+
+- **Export projects** as JSON templates
+- **Import templates** from colleagues or publications
+- **Rapid deployment** of standardized protocols across multiple studies
+- **Cross-cultural replication**: Adapt validated instruments to new contexts
+
+#### **🚀 Rapid Prototyping**
+
+Build new studies 10x faster:
+
+- Clone existing templates and customize for new contexts
+- Maintain methodological consistency across longitudinal studies
+- Iterate on proven designs without starting from scratch
 
 *Perfect for replication studies, cross-cultural comparisons, or adapting validated instruments to new research questions.*
 
