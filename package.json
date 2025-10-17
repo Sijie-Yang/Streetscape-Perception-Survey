@@ -30,7 +30,9 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "node server.js",
+    "server:watch": "./server-auto-restart.sh",
     "dev": "concurrently \"npm run server\" \"npm start\"",
+    "dev:safe": "concurrently \"npm run server:watch\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

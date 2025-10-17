@@ -507,6 +507,28 @@ app.post('/api/responses', async (req, res) => {
   }
 });
 
+// ✅ Backend restart endpoint
+app.post('/api/restart', async (req, res) => {
+  try {
+    console.log('🔄 Backend restart requested...');
+    
+    // Send response first
+    res.json({ 
+      success: true, 
+      message: 'Server restart initiated. Please wait 5-10 seconds for the server to restart.' 
+    });
+    
+    // Gracefully restart after sending response
+    setTimeout(() => {
+      console.log('🔄 Restarting server...');
+      process.exit(0); // Exit with success code, process manager should restart
+    }, 1000);
+  } catch (error) {
+    console.error('Error restarting server:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 File management server running on http://localhost:${PORT}`);
   console.log(`📁 Templates directory: ${TEMPLATES_PATH}`);

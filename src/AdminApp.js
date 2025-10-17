@@ -42,6 +42,7 @@ import SystemStatus from './components/admin/SystemStatus';
 import ImageDataset from './components/admin/ImageDataset';
 import WebsiteSetup from './components/admin/WebsiteSetup';
 import ProjectSidebar from './components/admin/ProjectSidebar';
+import BackendStatus from './components/admin/BackendStatus';
 import { saveSurveyConfig, loadSurveyConfig } from './lib/surveyStorage';
 import { demoSurveyConfig } from './lib/demoConfig';
 import { 
@@ -942,6 +943,11 @@ export default function AdminApp() {
                 </Typography>
               </Box>
             )}
+          </Box>
+          
+          {/* Backend Server Status Monitor */}
+          <Box sx={{ mr: 2 }}>
+            <BackendStatus />
           </Box>
           
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mr: 2 }}>

@@ -71,6 +71,7 @@ The platform offers 16 specialized question types designed specifically for stre
 - **📄 Multi-Page Surveys**: Structure complex perception studies with logical flow and progress tracking
 - **📱 Fully Responsive**: Ensure consistent data quality across devices - critical for field studies and diverse participant access
 - **🔄 Drag & Drop**: Rapidly prototype and iterate survey designs based on pilot testing feedback
+- **🟢 Real-time Backend Monitoring**: Live server status display with auto-restart capability - ensures uninterrupted survey development and data collection
 
 *These capabilities enable comprehensive streetscape perception research, from visual comfort assessments to walkability studies, supporting both quantitative analysis and qualitative insights essential for evidence-based urban design.*
 
@@ -126,7 +127,12 @@ npm install
 
 # Start both frontend and backend simultaneously
 npm run dev
+
+# Or use safe mode with auto-restart (recommended for development)
+npm run dev:safe
 ```
+
+**💡 Tip**: Use `npm run dev:safe` for development - it automatically restarts the backend server if it crashes, ensuring uninterrupted workflow.
 
 ### Access the Application
 
@@ -136,8 +142,19 @@ Once started, open your browser:
   - Create and manage surveys
   - Configure image datasets (Hugging Face) and survey backends (Supabase)
   - Preview surveys in real-time
+  - **🟢 Real-time Backend Status Monitor** - displays server status in header with auto-restart capability
   
 - **📋 Live Survey View**: http://localhost:3000/survey
+
+### Backend Status Monitoring
+
+The admin panel includes a **real-time backend status monitor** in the header:
+
+- **🟢 Backend Online** - Server is running normally
+- **🔴 Backend Offline** - Server is down (with pulsing animation and restart button)
+- Auto-checks server health every 5 seconds
+- One-click restart with automatic status recovery
+- Detailed status information available by clicking the status chip
 
 ### Create Your First Survey (3 minutes)
 
@@ -216,6 +233,35 @@ This platform was developed for the Thermal Affordance research:
 ## 🆘 Troubleshooting
 
 ### Common Issues & Solutions
+
+#### 🔴 **Backend Server Offline**
+
+**Problem**: Red "Backend Offline" status in admin panel header
+
+**Solutions**:
+```bash
+# Method 1: Use safe mode with auto-restart (recommended)
+npm run dev:safe
+# Backend will automatically restart if it crashes (2-3 seconds recovery)
+
+# Method 2: Manual restart
+npm run dev
+
+# Method 3: Backend only
+node server.js
+
+# Or use the auto-restart script directly
+./server-auto-restart.sh
+```
+
+**Features**:
+- ✅ Real-time status monitoring (checks every 5 seconds)
+- ✅ Visual alerts with pulsing animation when offline
+- ✅ One-click restart button in admin panel
+- ✅ Automatic clipboard copy of startup command
+- ✅ `npm run dev:safe` provides automatic crash recovery
+
+**Tip**: The admin panel header displays live backend status. Click the status chip for detailed information.
 
 #### 🖼️ **Images Not Loading**
 
