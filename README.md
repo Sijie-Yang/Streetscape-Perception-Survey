@@ -83,6 +83,8 @@ The platform offers 16 specialized question types designed specifically for stre
 
 Start with peer-reviewed survey designs from published research:
 
+<div style="font-size: 0.75em;">
+
 <table>
 <thead>
 <tr>
@@ -131,6 +133,8 @@ Start with peer-reviewed survey designs from published research:
 </tr>
 </tbody>
 </table>
+
+</div>
 
 **How to Use Templates:**
 1. Open Admin Panel → Project Sidebar
