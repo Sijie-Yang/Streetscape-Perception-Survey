@@ -89,9 +89,9 @@ Start with peer-reviewed survey designs from published research:
 |----------|-------------|---------|-------------|---------|
 | **Thermal Comfort in Sight**<br/>`2025-thermal` | Thermal comfort assessment using SVI. 50+ validated questions. | Yang et al. (2025) | [Building and Environment](https://www.sciencedirect.com/science/article/abs/pii/S0360132325000514) | ✅ `sijiey/Thermal-Affordance-Dataset` |
 | **SPECS**<br/>`2025-specs` | Street perception evaluation considering demographics and personality (1,000+ participants, 5 countries). | Quintana et al. (2025) | [arXiv](https://arxiv.org/abs/2505.12758) | 📖 [Wiki](https://github.com/matqr/specs/wiki) |
-| **Building Exterior Perception**<br/>`2025-building` | Evaluate human perception of building exteriors using ML techniques (250,000+ building images). | Liang et al. (2025) | [Building and Environment](https://doi.org/10.1016/j.buildenv.2024.111875) | 📖 Not provided |
-| **Street Multi-Activity Potential**<br/>`2025-street` | Graph-based community detection to evaluate street multi-activity potential (SMAP). | Li et al. (2025) | [CEUS](https://www.sciencedirect.com/science/article/pii/S0198971525001036) | 📖 Not provided |
-| **Effective Perception Survey**<br/>`2025-effective` | Comprehensive framework for image-based survey design in outdoor urban environments. | Gu et al. (2025) | [Landscape and Urban Planning](https://doi.org/10.1016/j.landurbplan.2025.105368) | 📖 Not provided |
+| **Building Exterior Perception**<br/>`2025-building` | Evaluate human perception of building exteriors using ML techniques (250,000+ building images). | Liang et al. (2025) | [Building and Environment](https://doi.org/10.1016/j.buildenv.2024.111875) | 📖 - |
+| **Street Multi-Activity Potential**<br/>`2025-street` | Graph-based community detection to evaluate street multi-activity potential (SMAP). | Li et al. (2025) | [CEUS](https://www.sciencedirect.com/science/article/pii/S0198971525001036) | 📖 - |
+| **Effective Perception Survey**<br/>`2025-effective` | Comprehensive framework for image-based survey design in outdoor urban environments. | Gu et al. (2025) | [Landscape and Urban Planning](https://doi.org/10.1016/j.landurbplan.2025.105368) | 📖 - |
 
 </small>
 
